@@ -79,6 +79,14 @@
             <p>Need something unique? We offer custom cupcake designs to match your event's theme or personal taste. Our talented bakers can create custom designs that will impress your guests and make your event memorable.</p>
         </div>
     </section>
+    <div class="flex-item">
+  <h3>Learn More About Our Cupcakes</h3>
+  <button class="toggle-info">More Info</button>
+  <div class="cupcake-info" style="display: none;">
+    <p>We use premium ingredients like Madagascar vanilla, Belgian chocolate, and fresh fruit. Our bakers hand-decorate each cupcake with care, ensuring every bite is as beautiful as it is delicious.</p>
+  </div>
+</div>
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -151,6 +159,12 @@
         });
       }
     );
+      // Slide toggle for cupcake info
+      $(".toggle-info").click(function() {
+      $(this).next(".cupcake-info").slideToggle("slow");
+     });
+
+
 
     // Slide toggle for promo message
     $("body").append('<div id="promoMessage" style="display:none; background:#ffe4e1; padding:10px; margin:20px; text-align:center;">🎉 Get 10% off your first order! Use code SWEET10</div>');
