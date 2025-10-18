@@ -132,6 +132,19 @@ img {
   margin-top: 10px;
   border-left: 4px solid #ff69b4;
 }
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.cupcake-img {
+  width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+}
+
 
 /* Define fade-in animation */
 @keyframes fadeIn {
