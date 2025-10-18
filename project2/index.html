@@ -78,6 +78,15 @@
             <h3>Custom Cupcake Designs</h3>
             <p>Need something unique? We offer custom cupcake designs to match your event's theme or personal taste. Our talented bakers can create custom designs that will impress your guests and make your event memorable.</p>
         </div>
+        <section id="cupcake-gallery">
+  <h2>Our Featured Cupcakes</h2>
+  <div class="gallery">
+    <img src="images/cupcake1.jpg" alt="Vanilla Cupcake" class="cupcake-img">
+    <img src="images/cupcake2.jpg" alt="Chocolate Cupcake" class="cupcake-img">
+    <img src="images/cupcake3.jpg" alt="Strawberry Cupcake" class="cupcake-img">
+  </div>
+</section>
+
     </section>
     <div class="flex-item">
   <h3>Learn More About Our Cupcakes</h3>
@@ -183,6 +192,26 @@
     });
   });
 </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $(".cupcake-img").hover(
+      function() {
+        $(this).css({
+          "transform": "scale(1.1)",
+          "box-shadow": "0 8px 16px rgba(0,0,0,0.3)"
+        });
+      },
+      function() {
+        $(this).css({
+          "transform": "scale(1)",
+          "box-shadow": "none"
+        });
+      }
+    );
+  });
+</script>
+
 
 </body>
 </html>
