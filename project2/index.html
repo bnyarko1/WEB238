@@ -86,6 +86,28 @@
     <img src="images/cupcake3.jpg" alt="Strawberry Cupcake" class="cupcake-img">
   </div>
 </section>
+    
+<section id="faqs" class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <h3 class="faq-question">What flavors are always available?</h3>
+    <div class="faq-answer" style="display: none;">
+      <p>We always offer classic flavors like vanilla, chocolate, red velvet, and cookies & cream.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <h3 class="faq-question">Do you deliver outside Toronto?</h3>
+    <div class="faq-answer" style="display: none;">
+      <p>Yes! We deliver across the GTA and surrounding areas. Contact us for special delivery requests.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <h3 class="faq-question">Can I customize my cupcakes?</h3>
+    <div class="faq-answer" style="display: none;">
+      <p>Absolutely. We offer custom designs for events, themes, and personal preferences.</p>
+    </div>
+  </div>
+</section>
 
     </section>
     <div class="flex-item">
@@ -182,6 +204,11 @@
     $("#promoToggle").click(function() {
       $("#promoMessage").slideToggle("slow");
     });
+      // FAQ accordion toggle
+$(".faq-question").click(function() {
+  $(this).next(".faq-answer").slideToggle("fast");
+  $(".faq-answer").not($(this).next()).slideUp("fast");
+});
 
     // High contrast toggle
     $("#contrast-toggle").click(function() {
@@ -191,8 +218,10 @@
       });
     });
   });
+  
+
 </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   $(document).ready(function() {
     $(".cupcake-img").hover(
@@ -211,7 +240,6 @@
     );
   });
 </script>
-
 
 </body>
 </html>
