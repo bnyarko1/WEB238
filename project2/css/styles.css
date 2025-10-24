@@ -144,7 +144,30 @@ img {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 10px;
 }
+.faq-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
+.faq-item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.faq-question {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+}
+
+.faq-answer {
+  padding: 10px;
+  background-color: #fff0f5;
+  border-left: 4px solid #ff69b4;
+}
 
 /* Define fade-in animation */
 @keyframes fadeIn {
@@ -281,4 +304,3 @@ img {
         align-items: center;
     }
 }
-
