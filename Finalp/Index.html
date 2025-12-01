@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chocolate Bliss</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Chocolate Bliss</h1>
+    <p>Indulge in the Sweet Side of Life</p>
+    <nav>
+      <ul>
+        <li><a href="#origins">Origins</a></li>
+        <li><a href="#types">Types</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#recipes">Recipes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="origins">
+    <h2>The Origins of Chocolate</h2>
+    <p>Chocolate has a rich history dating back to ancient Mesoamerican cultures...</p>
+    <img src="imgs/log2.jpg" alt="Ancient chocolate artifacts" />
+  </section>
+
+  <section id="types">
+    <h2>Types of Chocolate</h2>
+    <div class="choco-card">
+      <img src="imgs/logo2.jpg" alt="Dark Chocolate" />
+      <p>Dark chocolate: rich, bold, and full of antioxidants.</p>
+    </div>
+    <div class="choco-card">
+      <img src="imgs/log3.jpg" alt="Milk Chocolate" />
+      <p>Milk chocolate: creamy and sweet, a classic favorite.</p>
+    </div>
+    <div class="choco-card">
+      <img src="imgs/log4.jpg" alt="White Chocolate" />
+      <p>White chocolate: smooth and buttery, made without cocoa solids.</p>
+    </div>
+  </section>
+
+  <section id="benefits">
+    <h2>Health Benefits</h2>
+    <ul class="faq">
+      <li>
+        <button class="toggle-answer">Is chocolate good for the heart?</button>
+        <div class="answer">Yes, especially dark chocolate in moderation—it may improve circulation and reduce inflammation.</div>
+      </li>
+      <li>
+        <button class="toggle-answer">Does chocolate boost mood?</button>
+        <div class="answer">Chocolate contains compounds that stimulate serotonin and dopamine production.</div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="recipes">
+    <h2>Delicious Recipes</h2>
+    <button id="show-recipe">Show Chocolate Cake Recipe</button>
+    <div id="recipe-content">
+      <p>Ingredients: cocoa powder, flour, sugar, eggs, butter...</p>
+      <p>Steps: Mix dry ingredients, add wet ingredients, bake at 350°F for 30 minutes.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have a favorite chocolate recipe to share? Reach out!</p>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Chocolate Bliss. All rights reserved.
+
+    </footer>
+
+  <script>
+
+// Wait until the DOM is ready
+$(document).ready(function () {
+  
+  // 1. Hover effect on chocolate cards 
+  $(".choco-card").hover(
+    function () {
+      $(this).find("p").fadeIn(500); // show description
+    },
+    function () {
+      $(this).find("p").fadeOut(500); // hide description
+    }
+  );
+
+  // 2. Toggle FAQ answers 
+  $(".toggle-answer").click(function () {
+    $(this).next(".answer").slideToggle(400);
+  });
+
+  // 3. Scroll-triggered animation 
+  $(window).scroll(function () {
+    $(".choco-card").each(function () {
+      let position = $(this).offset().top;
+      let scroll = $(window).scrollTop();
+      let windowHeight = $(window).height();
+
+      if (scroll + windowHeight > position + 100) {
+        $(this).animate({ opacity: 1, marginLeft: "0px" }, 800);
+      }
+    });
+  });
+
+  // 4. Chocolate drip animation 
+  $("#show-recipe").click(function () {
+    $("#recipe-content").slideToggle(600);
+    // fun drip effect
+    $("<div class='drip'>🍫</div>")
+      .appendTo("body")
+      .css({
+        position: "fixed",
+        top: "0px",
+        left: Math.random() * $(window).width() + "px",
+        fontSize: "2rem"
+      })
+      .animate({ top: "100%" }, 2000, function () {
+        $(this).remove();
+      });
+  });
+
+  // 5. Trivia modal 
+  $("<div id='trivia-modal'><p>Did you know? The Mayans used cacao beans as currency!</p><button id='close-modal'>Close</button></div>")
+    .hide()
+    .appendTo("body")
+    .css({
+      position: "fixed",
+      top: "30%",
+      left: "30%",
+      background: "#fff",
+      padding: "20px",
+      border: "2px solid #6b3e26",
+      borderRadius: "8px",
+      zIndex: 1000
+    });
+
+  // Show trivia after 5 seconds
+  setTimeout(function () {
+    $("#trivia-modal").fadeIn(600);
+  }, 5000);
+
+  // Close trivia modal
+  $(document).on("click", "#close-modal", function () {
+    $("#trivia-modal").fadeOut(400);
+  });
+});
+
+
+  </script>
+</body>
+</html>
